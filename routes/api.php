@@ -14,9 +14,7 @@ Route::get('/estudiantes/{id}', function(){
     return 'Estudiante: ';
 });
 
-Route::post('/estudiantes', function(){
-    return 'Creando estudiantes';
-});
+Route::post('/estudiantes', [EstudianteController::class, 'crearEstudiante']);
 
 Route::put('/estudiantes/{id}', function(){
     return 'Actualizar estudiantes';
