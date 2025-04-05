@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Estudiante extends Model
+{
+    use HasFactory;
+
+    protected $table = 'Estudiante';
+
+    protected $fillable = [
+        'nombre',
+        'correo',
+        'telefono',
+        'carrera'
+    ];
+}
