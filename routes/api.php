@@ -10,9 +10,7 @@ use App\Http\Controllers\Api\EstudianteController;
 
 Route::get('/estudiantes', [EstudianteController::class, 'index']);
 
-Route::get('/estudiantes/{id}', function(){
-    return 'Estudiante: ';
-});
+Route::get('/estudiantes/{id}',[EstudianteController::class, 'mostrar']);
 
 Route::post('/estudiantes', [EstudianteController::class, 'crearEstudiante']);
 
@@ -23,3 +21,5 @@ Route::put('/estudiantes/{id}', function(){
 Route::delete('/estudiantes/{id}', function(){
     return 'Eliminar estudiantes';
 });
+
+

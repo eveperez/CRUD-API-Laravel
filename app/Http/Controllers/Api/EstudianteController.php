@@ -25,7 +25,8 @@ class EstudianteController extends Controller
 
 
     public function crearEstudiante(Request $request){
-        $validator = Validator::make($request->all(), [
+        $validator = Validator
+        ($request->all(), [
             'nombre' => ['required','string','max:255'],
             'correo' => ['required','string','email','max:255'],
             'telefono' => ['required','string','max:255'],
@@ -63,6 +64,24 @@ class EstudianteController extends Controller
             'status' => 201
         ];
         return response()->json($data, 201);
+    }
+
+    public function mostrar($id){
+        $estudiante = Estudiante::find($id);
+
+        if(!$estudiante) {
+            $data = [
+                'mensaje' => 'Estudiante no encontrado',
+                'status' => 404
+            ];
+            return response()->json($data, 404);
+        }
+
+        $data = [
+            'estudiante' => $estudiante,
+            'status' => 200
+        ];
+        return response()->json($estudiante, 200);
     }
 
 }
